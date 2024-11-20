@@ -20,17 +20,18 @@
 
 ## itemテーブル
 
-| Column                | Type       | Options           |
-| ------                | ------     | -----------       |
-| item_name             | string     | null: false       |
 | item_explanation      | text       | null: false       |
-| item_category_id      | integer    | null: false       |
-| item_situation_id     | integer    | null: false       |
-| delivery              | integer    | null: false       |
-| prefecture            | string     | null: false       |
-| day                   | string     | null: false       |
-| sales_price           | integer    | null: false       |
-| user                  |references  | foreign_key: true |
+| Column                | Type       | Options                       |
+| ------                | ------     | -----------                   |
+| item_name             | string     | null: false                   |
+| item_explanation      | text       | null: false                   |
+| item_category_id      | integer    | null: false                   |
+| item_situation_id     | integer    | null: false                   |
+| delivery_id           | integer    | null: false                   |
+| prefecture_id         | integer    | null: false                   |
+| day_id                | integer    | null: false                   |
+| sales_price           | integer    | null: false                   |
+| user                  |references  | foreign_key: true null: false |
 
 
 ### Association
@@ -42,14 +43,13 @@
 
 | Column           | Type       | Options                        |
 | ------           | ---------- | ------------------------------ |
-| delivery         | string     | null: false                    |
-| mail             | string     | null: false                    |
-| prefectures      | string     | null: false                    |
+| post_code        | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | town             | string     | null: false                    |
 | street_address   | string     | null: false                    |
 | building         | string     |                                |
 | telephone_number | string     | null: false                    |
-| orders           |references  | foreign_key: true              |
+| order            |references  | foreign_key: true null: false  |
 
 ### Association
 
