@@ -20,7 +20,6 @@
 
 ## itemテーブル
 
-| item_explanation      | text       | null: false       |
 | Column                | Type       | Options                       |
 | ------                | ------     | -----------                   |
 | item_name             | string     | null: false                   |
