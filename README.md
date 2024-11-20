@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| name               | string | null: false |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | -----------               |
+| name               | string | null: false               |
 | email              | string | null: false, unique: true |
-| encrypted_password | string | null: false |
-| last_name          | string | null: false |
-| first_name         | string | null: false |
-| last_name_kana     | string | null: false |
-| first_name_kana    | string | null: false |
-| birthday           | string | null: false |
+| encrypted_password | string | null: false               |
+| last_name          | string | null: false               |
+| first_name         | string | null: false               |
+| last_name_kana     | string | null: false               |
+| first_name_kana    | string | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 
@@ -20,19 +20,21 @@
 
 ## itemテーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| item_name   | string | null: false |
-| item_explanation   | string | null: false |
-| item_detail   | string | null: false |
-| item_category   | string | null: false |
-| item_situation   | string | null: false |
-| item_detail   | string | null: false |
-| delivery   | string | null: false |
-| delivery_load   | string | null: false |
-| region  | string | null: false |
-| day   | string | null: false |
-| sales_price   | string | null: false |
+| Column                | Type       | Options           |
+| ------                | ------     | -----------       |
+| item_name             | string     | null: false       |
+| item_explanation_id   | string     | null: false       |
+| item_detail_id        | integer    | null: false       |
+| item_category_id      | integer    | null: false       |
+| item_situation_id     | integer    | null: false       |
+| item_detail_id        | integer    | null: false       |
+| delivery              | integer    | null: false       |
+| delivery_load         | string     | null: false       |
+| prefectures           | string     | null: false       |
+| day                   | string     | null: false       |
+| sales_price           | integer    | null: false       |
+| user                  |references  | foreign_key: true |
+
 
 ### Association
 
@@ -41,15 +43,15 @@
 
 ## addresses テーブル
 
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| delivery | string  | null: false                     |
-| mail | string  | null: false                         |
-| prefectures | string  | null: false                  |
-| town | string  | null: false                         |
-| street_address | string  | null: false               |
-| building | string  | null: false                     |
-| telephone_number | string  | null: false             |
+| Column           | Type       | Options                        |
+| ------           | ---------- | ------------------------------ |
+| delivery         | string     | null: false                    |
+| mail             | string     | null: false                    |
+| prefectures      | string     | null: false                    |
+| town             | string     | null: false                    |
+| street_address   | string     | null: false                    |
+| building         | string     |                                |
+| telephone_number | string     | null: false                    |
 
 ### Association
 
@@ -59,9 +61,8 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| content | string     |                                |
 | user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
 
