@@ -24,12 +24,9 @@
 | ------                | ------     | -----------       |
 | item_name             | string     | null: false       |
 | item_explanation_id   | string     | null: false       |
-| item_detail_id        | integer    | null: false       |
 | item_category_id      | integer    | null: false       |
 | item_situation_id     | integer    | null: false       |
-| item_detail_id        | integer    | null: false       |
 | delivery              | integer    | null: false       |
-| delivery_load         | string     | null: false       |
 | prefectures           | string     | null: false       |
 | day                   | string     | null: false       |
 | sales_price           | integer    | null: false       |
