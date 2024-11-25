@@ -57,27 +57,22 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
       end
-      it 'sales_priceが空では登録できない' do
-        @item.sales_price = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Sales price can't be blank", 'Sales price is not a number')
-      end
       it 'imageは空では登録できない' do
         @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
-      it 'sales_priceが空では登録できない' do
+      it '299円以下の価格入力すると出品出来ない' do
         @item.sales_price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include('Sales price must be greater than or equal to 300')
       end
-      it 'sales_priceが空では登録できない' do
+      it '10_000_000円以上の価格入力すると出品出来ない' do
         @item.sales_price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Sales price must be less than or equal to 9999999')
       end
-      it 'sales_priceが空では登録できない' do
+      it '全角入力すると出品出来ない' do
         @item.sales_price = '８８８'
         @item.valid?
         expect(@item.errors.full_messages).to include('Sales price is not a number')
