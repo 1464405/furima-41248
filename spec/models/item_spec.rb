@@ -23,29 +23,29 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Explanation can't be blank")
       end
       it 'category_idが空では登録できない' do
-        @item.category_id = ''
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'situation_idがハイフンでは登録できない' do
-        @item.situation_id = '-'
+        @item.situation_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Situation is not a number')
+        expect(@item.errors.full_messages).to include('Situation must be other than 1')
       end
       it 'delivery_idがハイフンの時は出品出来ない' do
-        @item.delivery_id = ''
+        @item.delivery_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Delivery is not a number')
+        expect(@item.errors.full_messages).to include('Delivery must be other than 1')
       end
       it 'prefecture_idがハイフンの時は出品出来ない' do
-        @item.prefecture_id = ''
+        @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Prefecture is not a number')
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'day_idがハイフンの時は出品出来ない' do
-        @item.day_id = ''
+        @item.day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Day is not a number')
+        expect(@item.errors.full_messages).to include('Day must be other than 1')
       end
       it 'sales_priceが未入力の時は出品出来ない' do
         @item.sales_price = ''
@@ -61,6 +61,26 @@ RSpec.describe Item, type: :model do
         @item.sales_price = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Sales price can't be blank", 'Sales price is not a number')
+      end
+      it 'imageは空では登録できない' do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
+      end
+      it 'sales_priceが空では登録できない' do
+        @item.sales_price = 299
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Sales price must be greater than or equal to 300')
+      end
+      it 'sales_priceが空では登録できない' do
+        @item.sales_price = 10_000_000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Sales price must be less than or equal to 9999999')
+      end
+      it 'sales_priceが空では登録できない' do
+        @item.sales_price = '８８８'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Sales price is not a number')
       end
     end
   end

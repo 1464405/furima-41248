@@ -5,10 +5,9 @@ function price() {
 
   itemprice.addEventListener('input', function() {
     let values = itemprice.value
-    console.log(values)
     let tax = values * 0.1
-    addtaxprice.innerHTML = Math.round(tax)
-    profit.innerHTML = Math.round(values - tax)
+    addtaxprice.innerHTML = Math.floor(tax)
+    profit.innerHTML = Math.floor(values - tax)
   })
 }
 
