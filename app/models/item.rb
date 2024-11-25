@@ -6,8 +6,9 @@ class Item < ApplicationRecord
   belongs_to :delivery
   belongs_to :prefecture
   belongs_to :situation
+  belongs_to :user
 
-  validates :category_id, numericality: { other_than: 1 }
+  validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :situation_id, numericality: { other_than: 1 }
   validates :delivery_id, numericality: { other_than: 1 }
   validates :prefecture_id, numericality: { other_than: 1 }
