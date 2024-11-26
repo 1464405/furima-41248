@@ -22,14 +22,14 @@
 
 | Column                | Type       | Options                       |
 | ------                | ------     | -----------                   |
-| item_name             | string     | null: false                   |
-| item_explanation      | text       | null: false                   |
-| item_category_id      | integer    | null: false                   |
-| item_situation_id     | integer    | null: false                   |
+| name                  | string     | null: false                   |
+| explanation           | text       | null: false                   |
+| category_id           | integer    | null: false                   |
+| situation_id          | integer    | null: false                   |
 | delivery_id           | integer    | null: false                   |
 | prefecture_id         | integer    | null: false                   |
 | day_id                | integer    | null: false                   |
-| sales_price           | integer    | null: false                   |
+|  sales_price          | integer    | null: false                   |
 | user                  |references  | foreign_key: true null: false |
 
 
