@@ -22,14 +22,13 @@
         <%= @item.delivery.name %>
       </span>
     </div>
-  <% if user_signed_in?  %> 
-  <%# && !(@item.order)    (購入機能実装の為残してあります%> 
+  <% if user_signed_in? && !(@item.order) %> 
     <% if current_user.id == @item.user_id %>
     <%= link_to "商品の編集", edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
     <p class="or-text">or</p>
     <%= link_to "削除", item_path(@item), data: {turbo_method: :delete}, class:"item-destroy" %>
     <% else %>
-    <%# item_orders_path(@item) %>
+    <% item_orders_path(@item) %>
     <%= link_to "購入画面に進む",item_orders_path(@item),data: { turbo: false },class:"item-red-btn"%>
     <% end %>
   <% end %>
