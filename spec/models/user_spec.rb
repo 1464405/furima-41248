@@ -122,3 +122,14 @@ RSpec.describe User, type: :model do
     end
   end
 end
+
+
+| Column           | Type       | Options                        |
+| ------           | ---------- | ------------------------------ |
+| post_code        | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| town             | string     | null: false                    |
+| street_address   | string     | null: false                    |
+| building         | string     |                                |
+| telephone_number | string     | null: false                    |
+| order            |references  | foreign_key: true null: false  |
